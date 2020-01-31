@@ -16,12 +16,6 @@ print("[+] Success: Found %d References to XOR_FUNCTION_1" % len(refs))
 #List of addresses we have decoded already
 alreadyDecoded = []
 #iterates through each callee and attempts to decrypt string.
-"""
-Functions definition follows for reference
-
-XOR_FUNCTION_1((int)&lpBuffer_String,(int)String_length,(int)Start_XOR_value,(int)XOR_Increment_value);
-					stack[0x4]			stack[0x8]			stack[0xc]			stack[0x10]
-"""
 for r in refs:
 
 	callee = r.getFromAddress()
