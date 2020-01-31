@@ -27,7 +27,6 @@ for r in refs:
 	callee = r.getFromAddress()
 	inst = getInstructionAt(callee)
 	
-	#print("Callee: %s" % callee) This is for debug
 	# The parameters we care about passed to the decode function
 	# are on the stack
 	# iterate through max 15 instructions
@@ -37,13 +36,6 @@ for r in refs:
 	pushCount = 0	#Indicates which stack position to store value
 	stack = {'sBuff':0,'sLen':0,'XorStart':0,'XorInc':0} 	#dictionary w/ stack values
 	svNames = ['sBuff','sLen','XorStart','XorInc']			#list w/ dictionary info for push count
-	"""
-	Can I do this same thing with a dictionary? Yes, way cleaner and easier.
-	sBuff = 0 		#stack[0x4] String_Buffer
-	sLen = 0 		#stack[0x8] String_Length
-	XorStart = 0 	#stack[0xc] XOR_Start_Value
-	XorInc	= 0 	#stack[0x10] XOR_Increment_Value
-	"""
 	
 	#Grabs the stack arguments and puts them in stack dictionary
 	while((i < 15) and (pushCount < 4)):
